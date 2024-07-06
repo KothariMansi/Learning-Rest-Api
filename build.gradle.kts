@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
 	id("org.springframework.boot") version "3.3.1"
 	id("io.spring.dependency-management") version "1.1.5"
@@ -10,8 +12,20 @@ version = "0.0.1-SNAPSHOT"
 
 java {
 	toolchain {
+		sourceCompatibility = JavaVersion.VERSION_17
+		targetCompatibility = JavaVersion.VERSION_17
 		languageVersion = JavaLanguageVersion.of(17)
 	}
+}
+
+tasks.withType<KotlinCompile> {
+	kotlinOptions {
+		jvmTarget = "17"
+	}
+}
+
+tasks.withType<JavaCompile> {
+	options.release.set(17)
 }
 
 repositories {
