@@ -7,10 +7,6 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("api/hello")
 class HelloWorldController {
-
-    @GetMapping("/rest")
+    @GetMapping
     fun helloWorld(): String = "Hello this is a Rest endpoint."
-
-    @GetMapping("/new")
-    fun newWorld(): String = "Hello this is a NewText"
 }
